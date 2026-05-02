@@ -12,6 +12,7 @@ It uses only the Python standard library so it can run in a fresh environment.
 
 from __future__ import annotations
 
+import os
 import hashlib
 import json
 import re
@@ -23,7 +24,7 @@ from urllib.parse import urlparse
 
 
 HOST = "0.0.0.0"
-PORT = 8080
+PORT = int(os.environ.get("PORT", 8080))
 START = time.time()
 
 VALID_SCOPES = {"category", "merchant", "customer", "trigger"}
